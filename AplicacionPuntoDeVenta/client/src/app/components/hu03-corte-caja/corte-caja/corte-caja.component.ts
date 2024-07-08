@@ -1,5 +1,6 @@
 
 import { Component,ViewEncapsulation} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-corte-caja',
@@ -8,26 +9,43 @@ import { Component,ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class CorteCajaComponent {
-  employeeId: string = '';
-  firstTicket: string = '';
-  lastTicket: string = '';
-  date: string = '';
+  id_Corte_Caja: number = 1;
+  id_Usuario: string = '';
+  id_Venta_Primero: string = '';
+  id_Venta_Ultimo: string = '';
+  fecha_Inicio: string = '';
+  fecha_Termino: string = '';
+  total_Ventas: number = 0;
+  monto_Entregar: number = 0;
+  fecha_Corte: string = '';
   showReport: boolean = false;
+  reportData: any;
+
+  constructor(private http: HttpClient) {}
 
   corteDeCaja() {
-    // Aquí puedes agregar la lógica para manejar el corte de caja.
-    // Por ejemplo, podrías enviar los datos a un servicio para guardarlos en una base de datos.
-    console.log('ID del Empleado:', this.employeeId);
-    console.log('Clave del Primer Ticket:', this.firstTicket);
-    console.log('Clave del Último Ticket:', this.lastTicket);
-    console.log('Fecha:', this.date);
+    const corteData = {
+      id_Usuario: this.id_Usuario,
+      id_Venta_Primero: this.id_Venta_Primero,
+      id_Venta_Ultimo: this.id_Venta_Ultimo,
+      fecha_Inicio: this.fecha_Inicio
+    };
 
-   // Muestra el reporte de ventas
-   this.showReport = true;
+    this.http.post('http://localhost:3000/api/cortecaja', corteData).subscribe((response: any) => {
+      this.showReport = true;
+      this.reportData = response;
+    });
   }
 
   closeReport() {
-    // Oculta el reporte de ventas
     this.showReport = false;
   }
 }
+
+
+
+
+
+
+
+ 
