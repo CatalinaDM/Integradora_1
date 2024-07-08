@@ -22,22 +22,22 @@ Carmen Catalina Delgado Manzano-->
     <div class="card-header">CORTE DE CAJA</div>
     <div class="card-body center-content">
       <div class="form-group">
-        <label for="claveEmpleado">Clave Empleado</label>
-        <input type="text" class="form-control" id="claveEmpleado">
+        <label for="id_Usuario">Clave Empleado</label>
+        <input type="text" class="form-control" id="id_Usuario"[(ngModel)]="id_Usuario">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="clavePrimerTicket">Clave de su Primer Ticket</label>
-          <input type="text" class="form-control" id="clavePrimerTicket">
+          <label for="id_Venta_Primero">Clave de su Primer Ticket</label>
+          <input type="text" class="form-control" id="id_Venta_Primero"[(ngModel)]="id_Venta_Primero">
         </div>
         <div class="form-group col-md-6">
-          <label for="claveUltimoTicket">Clave de su Último Ticket</label>
-          <input type="text" class="form-control" id="claveUltimoTicket">
+          <label for="id_Venta_Ultimo">Clave de su Último Ticket</label>
+          <input type="text" class="form-control" id="id_Venta_Ultimo"[(ngModel)]="id_Venta_Ultimo">
         </div>
       </div>
       <div class="form-group">
-        <label for="fechaInicio">Fecha de Inicio</label>
-        <input type="date" class="form-control" id="fechaInicio">
+        <label for="fecha_Inicio">Fecha de Inicio</label>
+        <input type="date" class="form-control" id="fecha_Inicio"[(ngModel)]="fecha_Inicio">
       </div>
       <button type="button" class="btn btn-purple btn-block" (click)="corteDeCaja()">Corte de Caja</button>
     </div>
@@ -61,12 +61,12 @@ Carmen Catalina Delgado Manzano-->
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
-                <td>{{employeeId}}</td>
-                <td>40</td>
-                <td>{{date}} 8:00 a.m.</td>
-                <td>{{date}} 16:00 p.m.</td>
-                <td>$2354.23</td>
+                <td>{{reportData.id_Corte_Caja}}</td>
+                <td>{{reportData.id_Usuario}}</td>
+                <td>{{reportData.total_Ventas}}</td>
+                <td>{{reportData.fecha_Inicio}}</td>
+                <td>{{reportData.fecha_Termino}}</td>
+                <td>{{reportData.monto_Entregar}}</td>
               </tr>
             </tbody>
           </table>
