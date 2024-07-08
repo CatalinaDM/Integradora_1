@@ -1,0 +1,20 @@
+Este PR añade las rutas iniciales y las rutas de juegos a nuestro servidor Express. Ahora tenemos dos rutas principales:
+- La ruta raíz ('/') que devuelve un mensaje "Soy yo".
+- La ruta '/api/cortecaja' que devuelve un mensaje "Ya responde!!!!".
+
+### Cambios Realizados
+1. Se ha creado una clase IndexRoutes que configura la ruta raíz y devuelve el mensaje "Soy yo".
+2. Se ha creado una clase GamesRoutes que configura la ruta '/api/games' y devuelve el mensaje "Ya responde!!!".
+3. Se ha actualizado el archivo index.ts para utilizar estas rutas.
+
+### Pruebas Realizadas
+- Se ha probado accediendo a http://localhost:3000 y se ha verificado que muestra "Soy yo".
+- Se ha probado accediendo a http://localhost:3000/api/cortecaja y se ha verificado que muestra "Ya responde!!".
+
+### Cómo Probarlo
+1. Ejecuta el servidor con npm start.
+2. Abre tu navegador y accede a http://localhost:3000 para ver la ruta inicial.
+3. Abre tu navegador y accede a http://localhost:3000/api/cortecaja para ver la ruta
+
+Otra modificacion es que ya integramos la base de datos. 
+Y se esta comenzando a realizar las conexiones en back end 
